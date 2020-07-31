@@ -377,7 +377,10 @@ combat context seeUndockingComplete continueIfCombatComplete =
 
                                     nextOverviewEntryToLock :: _ ->
                                         describeBranch "I see an overview entry to lock."
-                                            (lockTargetFromOverviewEntry nextOverviewEntryToLock)
+                                            If anomalySiteAlreadyHasAFriendly then  
+                                             (continueIfCombatComplete context)
+                                              Else 
+                                             (lockTargetFromOverviewEntry nextOverviewEntryToLock)
                                 )
 
                         Just _ ->
